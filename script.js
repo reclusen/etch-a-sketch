@@ -5,12 +5,10 @@ const colorPicker = document.querySelector(".color-picker");
 const setBtn = document.querySelector(".dimensions");
 const rndBtn = document.querySelector(".randomize");
 
-const p = document.createElement("p");
-
 setBtn.addEventListener("click", () => {
-    const rows = document.getElementById("rows");
-    const columns = document.getElementById("cols");
-    const gap = document.getElementById("gap");
+    const rows = inputContainer.children[0];
+    const columns = inputContainer.children[1];
+    const gap = inputContainer.children[2];
 
     if (container.children) {
         container.replaceChildren();
