@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+input {
+    width: 50px;
+}
+
+button {
+    padding: 5px 15px;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    /* border: 1px solid blueviolet; */
+    width: 500px;
+    height: 500px;
+    /* gap: 10px; */
+    margin-top: 10px;
+    /* resize: both;
+    overflow: scroll; */
+}
+
+.item {
+    width: 22px;
+    height: 22px;
+    color: #f2f2f2;
+    font-size: 0.6rem;
+    background-color: rgb(53, 53, 245);
+}
