@@ -1,6 +1,11 @@
 const container = document.querySelector(".container");
 const inputContainer = document.querySelector(".input");
+const colorPicker = document.querySelector(".color-picker");
+
 const setBtn = document.querySelector(".dimensions");
+const rndBtn = document.querySelector(".randomize");
+
+const p = document.createElement("p");
 
 setBtn.addEventListener("click", () => {
     const rows = document.getElementById("rows");
@@ -19,10 +24,7 @@ setBtn.addEventListener("click", () => {
 
         //dynamically generate the grid dimensions according to n amount of items
         generateGridDimensions(rows.value, columns.value, gap.value);
-
-        item.addEventListener("mouseenter", (e) => {
-            e.target.style.backgroundColor = "red";
-        });
+        generateRandomColor(item);
     }
 
     if (container.offsetWidth > 768) {
@@ -37,4 +39,22 @@ function generateGridDimensions(rows, cols, gap) {
     container.style.height = ((item.offsetHeight * cols) + (parseInt(container.style.gap) * (cols - 1))) + "px";
     container.style.width = ((item.offsetWidth * rows) + (parseInt(container.style.gap) * (rows - 1))) + "px";
     container.style.gap = gap + "px";
+}
+
+function generateRandomColor(item) {
+    item.addEventListener("mousemove", (e) => {
+        const color = colorPicker.children;
+
+        rndBtn.addEventListener("click", (e) => {
+            color[0].value = getRandomInt(255);
+            color[1].value = getRandomInt(255);
+            color[2].value = getRandomInt(255);
+        });
+
+        item.style.backgroundColor = `rgb(${color[0].value}, ${color[1].value}, ${color[2].value})`;
+    });
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
 }
